@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Welfare Impact Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐔 Chicken Welfare Impact Calculator</h1>
+            <p>Search for chicken-containing foods to see their animal welfare impact</p>
+        </header>
+
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="search" 
+                placeholder="Search foods (e.g., chicken breast, nuggets, sandwich)..."
+                autocomplete="off"
+            >
+        </div>
+
+        <div id="results" class="results"></div>
+        <div id="impact" class="impact-display"></div>
+    </div>
+
+    <footer>
+        <p>Data based on FNDDS 2021-2023 and Faunalytics methodology</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
