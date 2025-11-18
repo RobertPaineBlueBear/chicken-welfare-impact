@@ -43,7 +43,7 @@ for (i in 1:nrow(chicken_per_food)) {
 # Export to JSON
 write_json(
   food_impacts_list,
-  "output/chicken_food_impacts.json",
+  "/Users/robpaine/chicken-welfare-impact/output/chicken_food_impacts.json",
   pretty = TRUE,
   auto_unbox = TRUE
 )
