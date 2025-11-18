@@ -1,7 +1,7 @@
 let foodData = [];
 
 // Load the JSON data
-fetch('../output/chicken_food_impacts.json')
+fetch('output/chicken_food_impacts.json')
     .then(response => response.json())
     .then(data => {
         foodData = data;
