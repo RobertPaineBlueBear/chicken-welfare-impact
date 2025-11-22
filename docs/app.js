@@ -1,16 +1,26 @@
 let foodData = [];
 
 // Load the JSON data
-fetch('output/chicken_food_impacts.json')
-    .then(response => response.json())
-    .then(data => {
+fetch('../output/chicken_food_impacts.json')
+    .then(response => {
+        console.log('Response status:', response.status);
+        console.log('Response ok:', response.ok);
+        return response.text();  // Get as text first to see what we're getting
+    })
+    .then(text => {
+        console.log('Received text length:', text.length);
+        console.log('First 100 chars:', text.substring(0, 100));
+        console.log('Last 100 chars:', text.substring(text.length - 100));
+        
+        // Now try to parse
+        const data = JSON.parse(text);
         foodData = data;
         console.log('✓ Loaded', foodData.length, 'foods');
     })
     .catch(error => {
         console.error('Error loading data:', error);
         document.getElementById('results').innerHTML = 
-            '<div class="empty-state">Error loading data. Make sure chicken_food_impacts.json is in the output folder.</div>';
+            '<div class="empty-state">Error loading data. Check console for details.</div>';
     });
 
 // Search functionality
@@ -47,17 +57,25 @@ searchInput.addEventListener('input', function(e) {
 });
 
 // Display impact for selected food
+// Display impact for selected food
 function showImpact(foodCode) {
+    console.log('showImpact called with:', foodCode);
+    
     const food = foodData.find(f => f.food_code === foodCode);
-    if (!food) return;
+    if (!food) {
+        console.error('Food not found:', foodCode);
+        return;
+    }
+
+    console.log('Found food:', food);
 
     // Hide search results
     resultsDiv.style.display = 'none';
     searchInput.value = '';
 
-    // Sort welfare harms by impact
+    // Sort welfare harms by hours per serving (highest first)
     const sortedHarms = [...food.welfare_harms].sort((a, b) => 
-        b.animals_affected - a.animals_affected
+        b.hours_per_serving - a.hours_per_serving
     );
 
     impactDiv.innerHTML = `
@@ -70,7 +88,7 @@ function showImpact(foodCode) {
             </div>
             <div class="stat-box">
                 <div class="label">Animals Affected</div>
-                <div class="value">${food.lives_per_serving.toFixed(6)}</div>
+                <div class="value">${food.lives_per_serving.toFixed(4)} chickens</div>
             </div>
         </div>
 
@@ -81,16 +99,16 @@ function showImpact(foodCode) {
                     <h4>${harm.condition}</h4>
                     <div class="harm-stats">
                         <div class="harm-stat">
-                            <div class="label">Prevalence</div>
-                            <div class="value">${(harm.prevalence * 100).toFixed(1)}% of chickens</div>
+                            <div class="label">Hours per Life</div>
+                            <div class="value">${harm.hours_per_life.toFixed(2)} hours</div>
                         </div>
                         <div class="harm-stat">
-                            <div class="label">Animals Affected</div>
-                            <div class="value">${harm.animals_affected.toFixed(6)} chickens</div>
+                            <div class="label">Hours per Serving</div>
+                            <div class="value">${harm.hours_per_serving.toFixed(4)} hours</div>
                         </div>
                     </div>
                     <div class="prevalence-bar">
-                        <div class="prevalence-fill" style="width: ${harm.prevalence * 100}%"></div>
+                        <div class="prevalence-fill" style="width: ${Math.min((harm.hours_per_serving / sortedHarms[0].hours_per_serving) * 100, 100)}%"></div>
                     </div>
                 </div>
             `).join('')}

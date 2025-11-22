@@ -1,0 +1,205 @@
+"food_code","main_food_description","n_servings","median_serving_g","mean_serving_g","milk_g","eggs_g","pork_g","beef_g","chicken_g","turkey_g","total_animal_g","median_milk_g_per_serving","median_eggs_g_per_serving","median_pork_g_per_serving","median_beef_g_per_serving","median_chicken_g_per_serving","median_turkey_g_per_serving","median_total_animal_g_per_serving"
+24100000,"Chicken, NS as to part and cooking method, NS as to skin eaten",121,67.5,74.3638887008933,0,0,0,0,100,0,100,0,0,0,0,67.5,0,67.5
+24100020,"Chicken, NS as to part and cooking method, skin not eaten",24,101.25,95.763287694078,0,0,0,0,100,0,100,0,0,0,0,101.25,0,101.25
+24102010,"Chicken, NS as to part, baked, broiled, or roasted, skin eaten",11,200.01,181.738530510834,0,0,0,0,100,0,100,0,0,0,0,200.01,0,200.01
+24102020,"Chicken, NS as to part, baked, broiled, or roasted, skin not eaten",14,101.25,118.505132377896,0,0,0,0,100,0,100,0,0,0,0,101.25,0,101.25
+24102070,"Chicken, NS as to part, rotisserie, skin not eaten",5,33.75,40.1774486821273,0,0,0,0,100,0,100,0,0,0,0,33.75,0,33.75
+24103070,"Chicken, NS as to part, grilled with sauce, NS as to skin eaten",7,108.28,127.577699186905,0,0,0,0,100,0,100,0,0,0,0,108.28,0,108.28
+24104051,"Chicken, NS as to part, sauteed, skin not eaten",9,67.5,93.1609760600178,0,0,0,0,100,0,100,0,0,0,0,67.5,0,67.5
+24120120,"Chicken breast, NS as to cooking method, skin not eaten",25,120,121.277046147924,0,0,0,0,100,0,100,0,0,0,0,120,0,120
+24122130,"Chicken breast, baked, broiled, or roasted, skin eaten, from raw",8,130,138.051921646228,0,0,0,0,100,0,100,0,0,0,0,130,0,130
+24122131,"Chicken breast, baked, broiled, or roasted, skin not eaten, from raw",74,120,111.515892407557,0,0,0,0,100,0,100,0,0,0,0,120,0,120
+24122140,"Chicken breast, baked or broiled, skin eaten, from pre-cooked",6,67.5,97.9160727903489,0,0,0,0,100,0,100,0,0,0,0,67.5,0,67.5
+24122141,"Chicken breast, baked or broiled, skin not eaten, from pre-cooked",34,101.25,124.872610499614,0,0,0,0,100,0,100,0,0,0,0,101.25,0,101.25
+24122150,"Chicken breast, baked or broiled, skin eaten, from fast food / restaurant",5,130,138.114381913056,0,0,0,0,98,0,98,0,0,0,0,127.4,0,127.4
+24122151,"Chicken breast, baked or broiled, skin not eaten, from fast food / restaurant",35,104,94.8331861930265,0,0,0,0,98,0,98,0,0,0,0,101.92,0,101.92
+24122161,"Chicken breast, baked, broiled, or roasted with marinade, skin not eaten, from raw",37,105,122.691693812782,0,0,0,0,96,0,96,0,0,0,0,100.8,0,100.8
+24122170,"Chicken breast, rotisserie, skin eaten",8,32.5,80.1913044634402,0,0,0,0,100,0,100,0,0,0,0,32.5,0,32.5
+24122171,"Chicken breast, rotisserie, skin not eaten",22,67.5,74.9071935369099,0,0,0,0,100,0,100,0,0,0,0,67.5,0,67.5
+24123120,"Chicken breast, stewed, skin not eaten",42,120,107.334810578094,0,0,0,0,100,0,100,0,0,0,0,120,0,120
+24123300,"Chicken breast, grilled without sauce, skin eaten",9,202.5,208.871839892467,0,0,0,0,98,0,98,0,0,0,0,198.45,0,198.45
+24123301,"Chicken breast, grilled without sauce, skin not eaten",70,120,114.6704683729,0,0,0,0,98,0,98,0,0,0,0,117.6,0,117.6
+24123311,"Chicken breast, grilled with sauce, skin not eaten",71,165,144.686151669135,0,0,0,0,80,0,80,0,0,0,0,132,0,132
+24124200,"Chicken breast, sauteed, skin eaten",10,67.5,96.2972636252877,0,0,0,0,98,0,98,0,0,0,0,66.15,0,66.15
+24124201,"Chicken breast, sauteed, skin not eaten",63,105,115.2860647106,0,0,0,0,98,0,98,0,0,0,0,102.9,0,102.9
+24127200,"Chicken breast, fried, coated, skin / coating eaten, from raw",13,195,168.573385460358,0,0,0,0,78,0,78,0,0,0,0,152.1,0,152.1
+24127202,"Chicken breast, fried, coated, prepared skinless, coating eaten, from raw",25,165,141.867772724181,0,0,0,0,78,0,78,0,0,0,0,128.7,0,128.7
+24127210,"Chicken breast, fried, coated, skin / coating eaten, from pre-cooked",19,150,143.695427232938,0,0,0,0,74,0,74,0,0,0,0,111,0,111
+24127220,"Chicken breast, fried, coated, skin / coating eaten, from fast food / restaurant",50,175,174.700153460767,0,0,0,0,78,0,78,0,0,0,0,136.5,0,136.5
+24127221,"Chicken breast, fried, coated, skin / coating not eaten, from fast food / restaurant",7,120,81.7005290054275,0,0,0,0,78,0,78,0,0,0,0,93.6,0,93.6
+24127500,"Chicken breast, baked, coated, skin / coating eaten",30,101.25,126.008632920185,0,0,0,0,88,0,88,0,0,0,0,89.1,0,89.1
+24127501,"Chicken breast, baked, coated, skin / coating not eaten",6,240,179.019877040495,0,0,0,0,98,0,98,0,0,0,0,235.2,0,235.2
+24130210,"Chicken leg, drumstick and thigh, NS as to cooking method, skin eaten",6,140,140,0,0,0,0,100,0,100,0,0,0,0,140,0,140
+24132230,"Chicken leg, drumstick and thigh, baked or broiled, skin eaten",10,140,183.59652556398,0,0,0,0,100,0,100,0,0,0,0,140,0,140
+24132231,"Chicken leg, drumstick and thigh, baked or broiled, skin not eaten",5,120,120.576183113586,0,0,0,0,100,0,100,0,0,0,0,120,0,120
+24134150,"Chicken leg, drumstick and thigh, grilled with sauce, skin eaten",6,195,198.193442697253,0,0,0,0,80,0,80,0,0,0,0,156,0,156
+24134151,"Chicken leg, drumstick and thigh, grilled with sauce, skin not eaten",7,185,180.395375307802,0,0,0,0,80,0,80,0,0,0,0,148,0,148
+24137300,"Chicken leg, drumstick and thigh, fried, coated, skin / coating eaten",12,195,202.970460285967,0,0,0,0,78,0,78,0,0,0,0,152.1,0,152.1
+24140210,"Chicken drumstick, NS as to cooking method, skin eaten",17,60,81.6964121648051,0,0,0,0,100,0,100,0,0,0,0,60,0,60
+24142300,"Chicken drumstick, baked, broiled, or roasted, skin eaten, from raw",12,60,70.594154260952,0,0,0,0,100,0,100,0,0,0,0,60,0,60
+24142301,"Chicken drumstick, baked, broiled, or roasted, skin not eaten, from raw",16,40,49.3525363618065,0,0,0,0,100,0,100,0,0,0,0,40,0,40
+24142310,"Chicken drumstick, baked or broiled, skin eaten, from pre-cooked",8,60,79.4681339425344,0,0,0,0,100,0,100,0,0,0,0,60,0,60
+24142311,"Chicken drumstick, baked or broiled, skin not eaten, from pre-cooked",5,50,48.6363543676498,0,0,0,0,100,0,100,0,0,0,0,50,0,50
+24142500,"Chicken drumstick, grilled without sauce, skin eaten",5,60,83.8399527640806,0,0,0,0,98,0,98,0,0,0,0,58.8,0,58.8
+24142501,"Chicken drumstick, grilled without sauce, skin not eaten",13,80,92.9805324538431,0,0,0,0,98,0,98,0,0,0,0,78.4,0,78.4
+24142510,"Chicken drumstick, grilled with sauce, skin eaten",27,85,122.078654190839,0,0,0,0,80,0,80,0,0,0,0,68,0,68
+24142511,"Chicken drumstick, grilled with sauce, skin not eaten",25,75,79.3271349950827,0,0,0,0,80,0,80,0,0,0,0,60,0,60
+24143210,"Chicken drumstick, stewed, skin eaten",9,90,101.149681240215,0,0,0,0,100,0,100,0,0,0,0,90,0,90
+24143220,"Chicken drumstick, stewed, skin not eaten",20,55,65.6158476727748,0,0,0,0,100,0,100,0,0,0,0,55,0,55
+24144300,"Chicken drumstick, sauteed, skin eaten",32,60,96.0649390532326,0,0,0,0,98,0,98,0,0,0,0,58.8,0,58.8
+24144301,"Chicken drumstick, sauteed, skin not eaten",14,50,74.9975734740923,0,0,0,0,98,0,98,0,0,0,0,49,0,49
+24147300,"Chicken drumstick, fried, coated, skin / coating eaten, from raw",40,85,123.458264894593,0,0,0,0,78,0,78,0,0,0,0,66.3,0,66.3
+24147301,"Chicken drumstick, fried, coated, skin / coating not eaten, from raw",7,100,170.067412190667,0,0,0,0,98,0,98,0,0,0,0,98,0,98
+24147310,"Chicken drumstick, fried, coated, skin / coating eaten, from pre-cooked",11,170,141.173544914702,0,0,0,0,74,0,74,0,0,0,0,125.8,0,125.8
+24147320,"Chicken drumstick, fried, coated, skin / coating eaten, from fast food / restaurant",53,85,124.580870853002,0,0,0,0,78,0,78,0,0,0,0,66.3,0,66.3
+24147400,"Chicken drumstick, baked, coated, skin / coating eaten",5,130,275.799357178937,0,0,0,0,88,0,88,0,0,0,0,114.4,0,114.4
+24150210,"Chicken thigh, NS as to cooking method, skin eaten",7,80,85.4312322862898,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24152230,"Chicken thigh, baked, broiled, or roasted, skin eaten, from raw",11,80,96.6186835148846,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24152231,"Chicken thigh, baked, broiled, or roasted, skin not eaten, from raw",26,70,94.1855903758202,0,0,0,0,100,0,100,0,0,0,0,70,0,70
+24152241,"Chicken thigh, baked or broiled, skin not eaten, from pre-cooked",6,70,114.002949787455,0,0,0,0,100,0,100,0,0,0,0,70,0,70
+24152300,"Chicken thigh, rotisserie, skin eaten",5,20,49.7319136750116,0,0,0,0,100,0,100,0,0,0,0,20,0,20
+24153210,"Chicken thigh, stewed, skin eaten",9,90,141.899275546049,0,0,0,0,100,0,100,0,0,0,0,90,0,90
+24153220,"Chicken thigh, stewed, skin not eaten",23,101.25,105.00199911339,0,0,0,0,100,0,100,0,0,0,0,101.25,0,101.25
+24154011,"Chicken thigh, grilled without sauce, skin not eaten",14,70,72.9308946148874,0,0,0,0,98,0,98,0,0,0,0,68.6,0,68.6
+24154020,"Chicken thigh, grilled with sauce, skin eaten",16,110,136.710155444618,0,0,0,0,80,0,80,0,0,0,0,88,0,88
+24154021,"Chicken thigh, grilled with sauce, skin not eaten",26,100,127.491514834553,0,0,0,0,80,0,80,0,0,0,0,80,0,80
+24154300,"Chicken thigh, sauteed, skin eaten",8,101.25,101.577997490738,0,0,0,0,98,0,98,0,0,0,0,99.225,0,99.225
+24154301,"Chicken thigh, sauteed, skin not eaten",10,140,126.379317510802,0,0,0,0,98,0,98,0,0,0,0,137.2,0,137.2
+24157300,"Chicken thigh, fried, coated, skin / coating eaten, from raw",10,110,144.255011412603,0,0,0,0,78,0,78,0,0,0,0,85.8,0,85.8
+24157310,"Chicken thigh, fried, coated, skin / coating eaten, from pre-cooked",7,270,233.925848156221,0,0,0,0,74,0,74,0,0,0,0,199.8,0,199.8
+24157320,"Chicken thigh, fried, coated, skin / coating eaten, from fast food",32,110,117.233677758849,0,0,0,0,78,0,78,0,0,0,0,85.8,0,85.8
+24157321,"Chicken thigh, fried, coated, skin / coating not eaten, from fast food",6,70,82.7505722778803,0,0,0,0,78,0,78,0,0,0,0,54.6,0,54.6
+24157330,"Chicken thigh, fried, coated, skin / coating eaten, from restaurant",6,110,130.387389677501,0,0,0,0,78,0,78,0,0,0,0,85.8,0,85.8
+24157400,"Chicken thigh, baked, coated, skin / coating eaten",14,110,148.967623840562,0,0,0,0,88,0,88,0,0,0,0,96.8,0,96.8
+24160110,"Chicken wing, NS as to cooking method",8,35,40.8952169292126,0,0,0,0,100,0,100,0,0,0,0,35,0,35
+24162130,"Chicken wing, baked, broiled, or roasted, from raw",24,70,68.2539740814663,0,0,0,0,100,0,100,0,0,0,0,70,0,70
+24162140,"Chicken wing, baked or broiled, from pre-cooked",7,35,52.7466124874503,0,0,0,0,100,0,100,0,0,0,0,35,0,35
+24162150,"Chicken wing, baked or broiled, from fast food / restaurant",6,88,92.1669241792354,0,0,0,0,98,0,98,0,0,0,0,86.24,0,86.24
+24163110,"Chicken wing, stewed",9,45,93.093040352471,0,0,0,0,100,0,100,0,0,0,0,45,0,45
+24164000,"Chicken wing, grilled without sauce",9,70,85.4608579195705,0,0,0,0,98,0,98,0,0,0,0,68.6,0,68.6
+24164010,"Chicken wing, grilled with sauce",15,55,90.0820110184006,0,0,0,0,80,0,80,0,0,0,0,44,0,44
+24164200,"Chicken wing, sauteed",29,70,109.513723915134,0,0,0,0,98,0,98,0,0,0,0,68.6,0,68.6
+24167200,"Chicken wing, fried, coated, from raw",29,82.5,97.2878493910513,0,0,0,0,78,0,78,0,0,0,0,64.35,0,64.35
+24167210,"Chicken wing, fried, coated, from pre-cooked",5,55,108.696149064646,0,0,0,0,74,0,74,0,0,0,0,40.7,0,40.7
+24167220,"Chicken wing, fried, coated, from fast food",39,110,132.447984738229,0,0,0,0,78,0,78,0,0,0,0,85.8,0,85.8
+24167230,"Chicken wing, fried, coated, from restaurant",20,110,147.734669666382,0,0,0,0,78,0,78,0,0,0,0,85.8,0,85.8
+24167300,"Chicken wing, baked, coated",5,220,374.041756565225,0,0,0,0,88,0,88,0,0,0,0,193.6,0,193.6
+24168000,"Chicken ""wings"" with hot sauce, from fast food / restaurant",49,210,249.62447721891,0,0,0,0,75,0,75,0,0,0,0,157.5,0,157.5
+24168001,"Chicken ""wings"" with other sauces or seasoning, from fast food / restaurant",28,175,162.034244177646,0,0,0,0,75,0,75,0,0,0,0,131.25,0,131.25
+24168002,"Chicken ""wings"", plain, from fast food / restaurant",24,66,77.0730482820467,0,0,0,0,100,0,100,0,0,0,0,66,0,66
+24168010,"Chicken ""wings"" with hot sauce, from precooked",15,105,143.780969559453,0,0,0,0,75,0,75,0,0,0,0,78.75,0,78.75
+24168011,"Chicken ""wings"" with other sauces or seasoning, from precooked",12,140,143.758011617152,0,0,0,0,75,0,75,0,0,0,0,105,0,105
+24168020,"Chicken ""wings"" with hot sauce, from other sources",7,140,178.231399198902,0,0,0,0,100,0,100,0,0,0,0,140,0,140
+24168021,"Chicken ""wings"" with other sauces or seasoning, from other sources",33,140,130.25893239475,0,0,0,0,100,0,100,0,0,0,0,140,0,140
+24168022,"Chicken ""wings"", plain, from other sources",6,110,81.960573150217,0,0,0,0,100,0,100,0,0,0,0,110,0,110
+24168030,"Chicken ""wings"", boneless, with hot sauce, from fast food / restaurant",12,175,180.936265455342,0,0,0,0,75,0,75,0,0,0,0,131.25,0,131.25
+24198671,"Chicken patty, breaded",50,75,91.2952265260848,0,0,0,0,100,0,100,0,0,0,0,75,0,75
+24198683,"Chicken fillet, grilled",24,100,132.110370518836,0,0,0,0,80,0,80,0,0,0,0,80,0,80
+24198731,"Chicken nuggets, from fast food",181,80,107.682984147313,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198732,"Chicken nuggets, from restaurant",12,80,79.279374023508,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198735,"Chicken nuggets, from school lunch",37,80,78.4561211628239,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198736,"Chicken nuggets, from frozen",75,80,93.3215541731278,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198737,"Chicken nuggets, from other sources",12,80,93.0618987169119,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198739,"Chicken tenders or strips, NFS",20,100,137.354094096751,0,0,0,0,100,0,100,0,0,0,0,100,0,100
+24198741,"Chicken tenders or strips, breaded, from fast food",93,150,154.392269481272,0,0,0,0,100,0,100,0,0,0,0,150,0,150
+24198742,"Chicken tenders or strips, breaded, from restaurant",65,100,136.68339918874,0,0,0,0,102,0,102,0,0,0,0,102,0,102
+24198745,"Chicken tenders or strips, breaded, from school lunch",17,80,84.5564103497476,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198746,"Chicken tenders or strips, breaded, from frozen",54,80,96.8813338139505,0,0,0,0,100,0,100,0,0,0,0,80,0,80
+24198747,"Chicken tenders or strips, breaded, from other sources",54,150,139.298280653057,0,0,0,0,100,0,100,0,0,0,0,150,0,150
+25112200,"Liver, paste or pate",6,17.33,24.8837172696464,0,0,0,0,100,0,100,0,0,0,0,17.33,0,17.33
+25170420,"Gizzard",10,81.56,98.7644246614427,0,0,0,0,100,0,100,0,0,0,0,81.56,0,81.56
+25210280,"Hot dog, meat and poultry",15,114,100.830510285021,0,0,0,0,100,0,100,0,0,0,0,114,0,114
+25220410,"Bologna",111,56,43.8342636110797,0,0,0,0,100,0,100,0,0,0,0,56,0,56
+25221910,"Vienna sausage, canned",7,113,107.765397763591,0,0,0,0,100,0,100,0,0,0,0,113,0,113
+25230320,"Chicken, prepackaged or deli, luncheon meat",36,56,64.3217621622804,0,0,0,0,100,0,100,0,0,0,0,56,0,56
+25240110,"Chicken salad spread",5,26,44.8265295526,0,0,0,0,100,0,100,0,0,0,0,26,0,26
+27141000,"Chicken or turkey cacciatore",12,169,163.268770127572,0,0,0,0,952,0,952,0,0,0,0,1608.88,0,1608.88
+27141050,"Stewed chicken with tomato-based sauce, Mexican style",5,122,126.97761785982,0,0,0,0,580,0,580,0,0,0,0,707.6,0,707.6
+27141500,"Chili with chicken and beans",8,333.38,359.27388071988,0,0,0,0,25,0,25,0,0,0,0,83.345,0,83.345
+27143000,"Chicken or turkey with cream sauce",7,158.16,121.591727366328,0,0,0,0,70,0,70,0,0,0,0,110.712,0,110.712
+27144000,"Chicken or turkey with mushroom sauce",7,272,317.13026459643,30,0,0,0,70,0,100,81.6,0,0,0,190.4,0,272
+27145000,"Chicken or turkey with teriyaki",33,183,213.115159680233,0,0,0,0,90,0,90,0,0,0,0,164.7,0,164.7
+27146011,"Barbecue chicken",6,371.25,233.144358523807,0,0,0,0,70,0,70,0,0,0,0,259.875,0,259.875
+27146100,"Sweet and sour chicken or turkey",18,189,211.240132389943,0,0,0,0,100,0,100,0,0,0,0,189,0,189
+27146150,"Chicken curry",36,132.75,149.586512394657,0,0,0,0,20,0,20,0,0,0,0,26.55,0,26.55
+27146160,"Chicken with mole sauce",24,183,237.81224536875,0,0,0,0,70,0,70,0,0,0,0,128.1,0,128.1
+27146200,"Chicken or turkey with cheese sauce",8,271.13,236.681636890454,30,0,0,0,70,0,100,81.339,0,0,0,189.791,0,271.13
+27146300,"Chicken or turkey parmigiana",15,182,214.179027205362,188.75,100,0,0,680.4,0,969.15,343.525,182,0,0,1238.328,0,1763.853
+27146350,"Orange chicken",40,220.5,235.083375905639,0,0,0,0,100,0,100,0,0,0,0,220.5,0,220.5
+27146360,"Sesame chicken",7,220.5,204.138160143566,0,0,0,0,100,0,100,0,0,0,0,220.5,0,220.5
+27242000,"Chicken or turkey and noodles, no sauce",6,166.81,212.918848647866,0,50,0,0,15,0,65,0,83.405,0,0,25.0215,0,108.4265
+27243000,"Chicken or turkey and rice, no sauce",12,147,187.894240926909,0,0,0,0,15,0,15,0,0,0,0,22.05,0,22.05
+27243500,"Chicken or turkey and rice with tomato-based sauce",5,183,244.918179165657,0,0,0,0,15,0,15,0,0,0,0,27.45,0,27.45
+27246100,"Chicken or turkey with dumplings",10,183,252.069987564641,244,0,0,0,1512,0,1756,446.52,0,0,0,2766.96,0,3213.48
+27343020,"Chicken or turkey, noodles, and vegetables excluding carrots, broccoli, and dark-green leafy; no sauce",5,124.03,173.653397551263,0,50,0,0,15,0,65,0,62.015,0,0,18.6045,0,80.6195
+27343910,"Chicken or turkey chow mein or chop suey with noodles",8,192.5,213.854317311982,0,0,0,0,337.5,0,337.5,0,0,0,0,649.6875,0,649.6875
+27345010,"Chicken or turkey, rice, and vegetables including carrots, broccoli, and/or dark-green leafy; no sauce",12,324,269.7160694618,0,0,0,0,15,0,15,0,0,0,0,48.6,0,48.6
+27345020,"Chicken or turkey, rice, and vegetables excluding carrots, broccoli, and dark-green leafy; no sauce",8,162,181.984441313201,0,0,0,0,15,0,15,0,0,0,0,24.3,0,24.3
+27345310,"Chicken or turkey, rice, and vegetables including carrots, broccoli, and/or dark-green leafy; soy-based sauce",7,393.31,387.740739947682,0,0,0,0,460.2,0,460.2,0,0,0,0,1810.01262,0,1810.01262
+27345440,"Chicken or turkey, rice, and vegetables including carrots, broccoli, and/or dark-green leafy; cheese sauce",5,217.88,238.627193742983,30,0,0,0,15,0,45,65.364,0,0,0,32.682,0,98.046
+27347100,"Pot pie, chicken",36,330.75,312.366534211818,0,0,0,0,20,0,20,0,0,0,0,66.15,0,66.15
+27360090,"Paella, NFS",5,180,224.171034756994,0,0,0,224,1230,0,1454,0,0,0,403.2,2214,0,2617.2
+27363000,"Gumbo with rice",6,259.25,285.610923658556,0,0,363,0,1803,0,2166,0,0,941.0775,0,4674.2775,0,5615.355
+27416450,"Beef and vegetables including carrots, broccoli, and/or dark-green leafy; no potatoes, gravy",6,330.75,310.74798600279,0,0,0,15,30,0,45,0,0,0,49.6125,99.225,0,148.8375
+27440110,"Chicken or turkey and vegetables including carrots, broccoli, and/or dark-green leafy; no potatoes, no sauce",15,182.25,193.432324562154,0,0,0,0,15,0,15,0,0,0,0,27.3375,0,27.3375
+27440120,"Chicken or turkey and vegetables excluding carrots, broccoli, and dark-green leafy; no potatoes, no sauce",14,162,163.805640809373,0,0,0,0,15,0,15,0,0,0,0,24.3,0,24.3
+27440130,"Chicken or turkey shish kabob with vegetables, excluding potatoes",5,202,215.19732209869,0,0,0,0,907.2,0,907.2,0,0,0,0,1832.544,0,1832.544
+27445110,"Chicken or turkey and vegetables including carrots, broccoli, and/or dark-green leafy; no potatoes, soy-based sauce",17,393.31,339.689474916951,0,0,0,0,100,0,100,0,0,0,0,393.31,0,393.31
+27445120,"Chicken or turkey and vegetables excluding carrots, broccoli, and dark-green leafy; no potatoes, soy-based sauce",9,284.81,250.965943366748,0,0,0,0,460.2,0,460.2,0,0,0,0,1310.69562,0,1310.69562
+27445130,"Chicken or turkey and vegetables excluding carrots, broccoli, and dark-green leafy; no potatoes, tomato-based sauce",5,124.5,161.966911437402,0,0,0,0,15,0,15,0,0,0,0,18.675,0,18.675
+27445150,"General Tso chicken",9,151.11,143.328472572438,0,0,0,0,100,0,100,0,0,0,0,151.11,0,151.11
+27445220,"Kung pao chicken",7,141.75,176.487647868758,0,0,0,0,100,0,100,0,0,0,0,141.75,0,141.75
+27446200,"Chicken or turkey salad, made with mayonnaise",19,113,136.075924208557,0,0,0,0,270,0,270,0,0,0,0,305.1,0,305.1
+27446205,"Chicken or turkey salad with nuts and/or fruits",10,98.88,111.736316521256,0,0,0,0,270,0,270,0,0,0,0,266.976,0,266.976
+27446220,"Chicken or turkey salad with egg",7,56.5,96.7091918553083,0,50,0,0,270,0,320,0,28.25,0,0,152.55,0,180.8
+27446230,"Chicken or turkey salad, made with mayonnaise-type salad dressing",7,113,197.999922965277,0,0,0,0,270,0,270,0,0,0,0,305.1,0,305.1
+27540145,"Chicken fillet biscuit, from fast food",8,150,156.127542105743,0,0,0,0,85,0,85,0,0,0,0,127.5,0,127.5
+27564180,"Hot dog sandwich, meat and poultry, on white bun",19,204,206.020855810672,0,0,45,0,57,0,102,0,0,91.8,0,116.28,0,208.08
+28315150,"Soup, pozole",15,394.19,332.131178957149,0,0,0,0,10,0,10,0,0,0,0,39.419,0,39.419
+28340120,"Soup, broth",13,240,233.965577466402,0,0,0,50,50,0,100,0,0,0,120,120,0,240
+28340660,"Soup, chicken",56,313.69,326.043544757999,0,0,0,0,10,0,10,0,0,0,0,31.369,0,31.369
+28340670,"Soup, sopa or caldo de pollo",46,438.63,390.914736322801,0,0,0,0,20,0,20,0,0,0,0,87.726,0,87.726
+28500000,"Gravy, poultry",9,29.75,59.4460147018721,0,0,0,0,100,0,100,0,0,0,0,29.75,0,29.75
+58104150,"Nachos, chicken",5,119.63,116.008697085185,100,0,0,0,60,0,160,119.63,0,0,0,71.778,0,191.408
+58104740,"Quesadilla, chicken",14,158,148.028818900946,20,0,0,0,30,0,50,31.6,0,0,0,47.4,0,79
+58104770,"Quesadilla, chicken, with vegetables",13,79.5,93.440740340273,20,0,0,0,15,0,35,15.9,0,0,0,11.925,0,27.825
+58104835,"Taquito, chicken",8,72,95.5947191821347,5,0,0,0,15,0,20,3.6,0,0,0,10.8,0,14.4
+58105000,"Fajita, chicken",33,172.5,213.220870905491,0,0,0,0,30,0,30,0,0,0,0,51.75,0,51.75
+58106650,"Pizza with extra meat, thin crust",13,148.8,267.243206174626,691,0,67,134,67,0,959,1028.208,0,99.696,199.392,99.696,0,1426.992
+58106655,"Pizza with extra meat, medium crust",29,150,242.932404163799,954,0,62,124,62,0,1202,1431,0,93,186,93,0,1803
+58106660,"Pizza with extra meat, thick crust",17,166,198.039241556329,1060,0,67,134,67,0,1328,1759.6,0,111.22,222.44,111.22,0,2204.48
+58106736,"Pizza with extra meat and extra vegetables, thin crust",6,264,244.327084540109,691,0,49,49,49,0,838,1824.24,0,129.36,129.36,129.36,0,2212.32
+58106737,"Pizza with extra meat and extra vegetables, thick crust",7,519,463.016376172968,1060,0,46,46,46,0,1198,5501.4,0,238.74,238.74,238.74,0,6217.62
+58106738,"Pizza with extra meat and extra vegetables, medium crust",24,234,283.662006971271,954,0,46,46,46,0,1092,2232.36,0,107.64,107.64,107.64,0,2555.28
+58110170,"Egg roll, with chicken or turkey",14,64,111.466088153334,0,90,0,0,10,0,100,0,57.6,0,0,6.4,0,64
+58116130,"Empanada, chicken, with vegetables",7,222,293.130405463028,5,0,0,0,10,0,15,11.1,0,0,0,22.2,0,33.3
+58128120,"Cornmeal dressing with chicken or turkey and vegetables",8,161,152.939947096659,0,0,0,0,165.5,0,165.5,0,0,0,0,266.455,0,266.455
+58128220,"Dressing with chicken or turkey and vegetables",9,90.56,138.229927594483,0,0,0,0,167.5,0,167.5,0,0,0,0,151.688,0,151.688
+58136160,"Lo mein, with chicken",7,262.5,250.476809943138,0,0,0,0,337.5,0,337.5,0,0,0,0,885.9375,0,885.9375
+58137230,"Pad Thai with chicken",7,212.5,487.403451528575,0,100,0,0,270,0,370,0,212.5,0,0,573.75,0,786.25
+58145190,"Macaroni or noodles with cheese and chicken or turkey",5,230,240.152071576805,690,0,0,0,363,0,1053,1587,0,0,0,834.9,0,2421.9
+58146341,"Pasta with tomato-based sauce and poultry, restaurant",6,187.5,195.49605441455,0,0,0,0,130,0,130,0,0,0,0,243.75,0,243.75
+58146342,"Pasta with tomato-based sauce and poultry, home recipe",13,328.13,336.009825217938,0,0,0,0,130,0,130,0,0,0,0,426.569,0,426.569
+58146352,"Pasta with tomato-based sauce, poultry, and added vegetables, home recipe",14,453.13,421.927744207931,0,0,0,0,130,0,130,0,0,0,0,589.069,0,589.069
+58146421,"Pasta with cream sauce and poultry, restaurant",11,328.13,345.608419419871,0,0,0,0,130,0,130,0,0,0,0,426.569,0,426.569
+58146422,"Pasta with cream sauce and poultry, home recipe",14,265.63,392.885986872463,0,0,0,0,130,0,130,0,0,0,0,345.319,0,345.319
+58146431,"Pasta with cream sauce, poultry, and added vegetables, restaurant",6,265.63,293.593562302181,0,0,0,0,130,0,130,0,0,0,0,345.319,0,345.319
+58146432,"Pasta with cream sauce, poultry, and added vegetables, home recipe",15,453.13,404.017004597211,0,0,0,0,130,0,130,0,0,0,0,589.069,0,589.069
+58146433,"Pasta with cream sauce, poultry, and added vegetables, ready-to-heat",11,265.63,440.307356997747,0,0,0,0,130,0,130,0,0,0,0,345.319,0,345.319
+58150320,"Rice, fried, with chicken",40,259.88,229.1838718833,0,0,0,0,15,0,15,0,0,0,0,38.982,0,38.982
+58163130,"Dirty rice",12,198,170.760902775049,0,0,0,0,1186.8,0,1186.8,0,0,0,0,2349.864,0,2349.864
+58163380,"Flavored rice and pasta mixture",35,98,108.507212884344,0,0,0,0,175.77,0,175.77,0,0,0,0,172.2546,0,172.2546
+58163410,"Spanish rice, fat added",90,182.25,210.169069643199,0,0,16,0,420,0,436,0,0,29.16,0,765.45,0,794.61
+58163420,"Spanish rice, no added fat",23,159.47,269.144765961909,0,0,16,0,420,0,436,0,0,25.5152,0,669.774,0,695.2892
+58163430,"Spanish rice, NS as to fat",15,121.5,120.193824615406,0,0,16,0,420,0,436,0,0,19.44,0,510.3,0,529.74
+58400100,"Soup, noodle, NFS",15,271.13,275.750305107607,0,0,0,0,50,0,50,0,0,0,0,135.565,0,135.565
+58400200,"Soup, rice",12,256.06,299.173473792193,0,0,0,0,10,0,10,0,0,0,0,25.606,0,25.606
+58403010,"Soup, chicken noodle, canned",47,436.81,412.256732851854,0,30,0,0,10,0,40,0,131.043,0,0,43.681,0,174.724
+58403040,"Soup, chicken noodle",43,482,448.527748869656,0,15,0,0,10,0,25,0,72.3,0,0,48.2,0,120.5
+58403060,"Soup, chicken, canned, reduced sodium",11,312.38,322.159601547484,0,0,0,0,10,0,10,0,0,0,0,31.238,0,31.238
+58421080,"Soup, tortilla",7,315,365.365999711794,0,0,0,0,10,0,10,0,0,0,0,31.5,0,31.5
+71501006,"Potato, mashed, from fast food, with gravy",51,140.63,156.349993715498,0,0,0,0,25,0,25,0,0,0,0,35.1575,0,35.1575
+71501012,"Potato, mashed, from fresh, made with milk, with gravy",36,250,242.042261356098,100,0,0,0,25,0,125,250,0,0,0,62.5,0,312.5
+71501017,"Potato, mashed, from restaurant, with gravy",33,140.63,198.925775896938,0,0,0,0,25,0,25,0,0,0,0,35.1575,0,35.1575
+71501054,"Potato, mashed, from dry mix, made with milk, with gravy",20,187.5,181.024791351622,100,0,0,0,25,0,125,187.5,0,0,0,46.875,0,234.375
+71501075,"Potato, mashed, ready-to-heat, with gravy",18,250,211.341063182506,0,0,0,0,25,0,25,0,0,0,0,62.5,0,62.5

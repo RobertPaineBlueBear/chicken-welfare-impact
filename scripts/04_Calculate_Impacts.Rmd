@@ -1,0 +1,47 @@
+---
+title: "04_Calculate_Impacts"
+output: html_document
+date: "2025-11-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###### Import Files
+```{r}
+foods_complete <- readRDS("/Users/robpaine/chicken-welfare-impact/data/processed/serving-sizes.rds")
+welfare_prevalence <- readRDS("/Users/robpaine/chicken-welfare-impact/data/processed/welfare-footprint-chicken-harms.rds")
+animal_per_g <- readRDS("/Users/robpaine/chicken-welfare-impact/data/processed/animal_per_g.rds")
+```
+
+##### Extract animal_per_g variable
+```{r}
+meat_chicken_per_g <- animal_per_g[1, 2]
+```
+
+##### Function To Calculate Lives Per Serving
+```{r}
+calculate_impact <- function(grams, animalperg) {
+  lives_per_serving <- grams * animalperg
+  return(lives_per_serving)
+}
+```
+##### Apply Function
+```{r}
+foods_complete$lives_per_serving <- sapply(
+  foods_complete$chicken,
+  function(x) calculate_impact(x, meat_chicken_per_g)
+)
+```
+
+```{r}
+for (i in colnames(welfare_prevalence)) {
+  new_col_name <- paste0(i, "_per_serving")
+  foods_complete[[new_col_name]] <- foods_complete$lives_per_serving * as.numeric(welfare_prevalence[[i]][1])
+}
+```
+
+```{r}
+saveRDS(foods_complete, "/Users/robpaine/chicken-welfare-impact/data/processed/animal_per_food_w_impacts.rds")
+```

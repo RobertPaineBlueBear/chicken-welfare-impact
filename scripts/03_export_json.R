@@ -34,7 +34,7 @@ for (i in 1:nrow(chicken_per_food)) {
   food_impacts_list[[i]] <- list(
     food_code = chicken_per_food$food_code[i],
     food_name = chicken_per_food$main_food_description[i],
-    chicken_grams = chicken_per_food$ingredient_weight_g[i],
+    chicken_grams = chicken_per_food$median_chicken_g_per_serving[i],
     lives_per_serving = chicken_per_food$lives_per_serving[i],
     welfare_harms = welfare_harms
   )

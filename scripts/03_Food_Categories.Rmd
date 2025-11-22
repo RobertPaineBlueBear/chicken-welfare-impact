@@ -1,0 +1,129 @@
+---
+title: "03_Food_Categories"
+output: html_document
+date: "2025-11-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(warnings = FALSE)
+```
+
+##### Load Data
+```{r}
+fndds <- read_excel('/Users/robpaine/chicken-welfare-impact/data/raw/2021-2023 FNDDS At A Glance - FNDDS Ingredients.xlsx')
+nhanes <- read_xpt('/Users/robpaine/chicken-welfare-impact/data/raw/DR1IFF_I.xpt')
+```
+
+##### Clean Data
+```{r}
+colnames(fndds) <- fndds[1, ]
+fndds <- fndds[-1, ]
+fndds <- clean_names(fndds)
+fndds$ingredient_weight_g <- as.numeric(fndds$ingredient_weight_g)
+fndds$food_code <- as.numeric(fndds$food_code)
+nhanes$SEQN <- as.numeric(nhanes$SEQN)
+```
+
+##### Identify the foods that we want
+```{r}
+csv_text <- "food_code,food_name_simple
+24122131,\"Baked chicken breast\"
+24123301,\"Grilled chicken breast\"
+24124201,\"Pan-seared chicken breast\"
+24122171,\"Rotisserie chicken breast\"
+24152231,\"Baked chicken thigh\"
+24154021,\"Grilled chicken thigh\"
+24142510,\"Grilled chicken drumstick\"
+24162130,\"Baked chicken wings\"
+24127220,\"Fried chicken breast\"
+24147320,\"Fried chicken drumstick\"
+24157320,\"Fried chicken thigh\"
+24167220,\"Fried chicken wings\"
+24198731,\"Chicken nuggets\"
+24198741,\"Chicken tenders\"
+24198671,\"Chicken patty\"
+24168000,\"Buffalo wings\"
+27146350,\"Orange chicken\"
+27145000,\"Chicken teriyaki\"
+27146100,\"Sweet and sour chicken\"
+27445150,\"General Tso's chicken\"
+58150320,\"Chicken fried rice\"
+58105000,\"Chicken fajitas\"
+58104740,\"Chicken quesadilla\"
+27347100,\"Chicken pot pie\"
+28340660,\"Chicken soup\"
+58403040,\"Chicken noodle soup\"
+27446200,\"Chicken salad\"
+58146342,\"Pasta with chicken\"
+24198683,\"Grilled chicken fillet\""
+
+foods <- read.csv(text = csv_text)
+```
+
+##### Filter to the foods that we want
+```{r}
+df <- merge(foods, fndds, by = 'food_code')
+df <- df[ , c(1, 2, 8, 9)]
+```
+
+##### Classify Ingredients
+```{r}
+animal_products <- list(
+  chicken = c("chicken", "poultry"),
+  beef = c("beef", "veal", "cattle"),
+  pork = c("pork", "bacon", "ham", "sausage.*pork"),
+  turkey = c("turkey"),
+  eggs = c("egg", "yolk", "albumin"),
+  milk = c("milk"),
+  cheese = c("cheese"),
+  yoghurt = c("yogurt"), 
+  butter = c("butter"),
+  ice_cream = c("ice cream")
+)
+classify_ingredient <- function(ingredient_desc) {
+  ingredient_desc <- tolower(ingredient_desc)
+  
+  for (product_name in names(animal_products)) {
+    patterns <- animal_products[[product_name]]
+    if (any(sapply(patterns, function(p) grepl(p, ingredient_desc, ignore.case = TRUE)))) {
+      return(product_name)
+    }
+  }
+  return(NA)
+}
+df$animal_product <- sapply(df$ingredient_description, classify_ingredient)
+df <- df[!is.na(df$animal_product), ]
+write.csv(df, "/Users/robpaine/chicken-welfare-impact/chickenproducts.csv")
+```
+
+##### Aggregate Ingredients
+```{r}
+df <- aggregate(
+  ingredient_weight_g ~ food_code + food_name_simple + food_name_simple + animal_product,
+  data = df,
+  FUN = sum
+)
+```
+
+##### Reshape to only unique columns
+```{r}
+df <- reshape(
+  df,
+  idvar = c("food_code", "food_name_simple"),
+  timevar = "animal_product",
+  v.names = "ingredient_weight_g",
+  direction = "wide"
+)
+names(df) <- gsub("ingredient_weight_g\\.", "", names(df))
+```
+
+##### Replace NA values with 0
+```{r}
+animal_cols <- names(df)[!names(df) %in% c("food_code", "food_name_simple", "main_food_description")]
+df[animal_cols][is.na(df[animal_cols])] <- 0
+```
+
+```{r}
+saveRDS(df, '/Users/robpaine/chicken-welfare-impact/data/processed/serving-sizes.rds')
+```

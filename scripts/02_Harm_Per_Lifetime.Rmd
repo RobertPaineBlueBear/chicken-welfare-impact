@@ -1,0 +1,84 @@
+---
+title: "02_Harm_Per_Lifetime"
+output: html_document
+date: "2025-11-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+##### Load In Data
+```{r}
+wfp <- read_csv('/Users/robpaine/chicken-welfare-impact/data/raw/WFP Estimates of Time in Pain - Broilers (Farm) - Time in Pain per Harm.csv')
+```
+
+##### Convert Seconds In Pain To Hours
+```{r}
+wfp$pain_hours <- ifelse(wfp$`Time Unit` == "seconds", 
+                         wfp$`Mean time in pain (spent by 'average' population member, takes harm prevalence into account)` / 60,
+                         wfp$`Mean time in pain (spent by 'average' population member, takes harm prevalence into account)`)
+```
+
+##### Filter to Only Conventional Cages
+```{r}
+wfp <- wfp[wfp[ , 2] == "Conventional", ]
+```
+
+##### Group and Total Hours
+```{r}
+wfp <- wfp %>%
+  dplyr::group_by(Challenge) %>%
+  dplyr::summarize(
+    total_hours = sum(pain_hours)
+  )
+```
+
+##### Group Lameness Categories Together
+```{r}
+wfp <- wfp %>%
+  add_row(
+    Challenge = "Lameness",
+    total_hours = sum(wfp$total_hours[grepl("Gait Score", wfp$Challenge)])
+  )
+wfp <- wfp[!grepl("Gait Score", wfp$Challenge), ]
+```
+
+##### Group Ascites Categories Together
+```{r}
+wfp <- wfp %>%
+  add_row(
+    Challenge = "Ascites",
+    total_hours = sum(wfp$total_hours[grepl("Ascites", wfp$Challenge)])
+  )
+```
+
+##### Group Peritonitis Categories Together
+```{r}
+wfp <- wfp %>%
+  add_row(
+    Challenge = "Peritonitis",
+    total_hours = sum(wfp$total_hours[grepl("Peritonitis", wfp$Challenge)])
+  )
+```
+
+##### Get Rid Of Old Categories
+```{r}
+wfp <- wfp[!grepl("Gait Score", wfp$Challenge), ]
+wfp <- wfp[!wfp$Challenge %in% c("Ascites (fatal)", "Ascites (non-fatal)", "Chronic Peritonitis", "Acute Peritonitis"), ]
+```
+
+##### Transform
+```{r}
+wfp <- as.data.frame(t(wfp))
+colnames(wfp) <- wfp[1, ]
+wfp <- wfp[-1, ]
+wfp[1, ] <- as.numeric(wfp[1, ])
+```
+
+##### Save File
+```{r}
+saveRDS(wfp, '/Users/robpaine/chicken-welfare-impact/data/processed/welfare-footprint-chicken-harms.rds')
+```
+```

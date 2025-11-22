@@ -1,0 +1,68 @@
+---
+title: "01_Animal_Per_Product"
+output: html_document
+date: "2025-11-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(janitor)
+```
+
+##### Create Initial Dataframe
+```{r}
+df <- data.frame(
+  animal = character(),
+  prod_lbs = numeric(),
+  prod_head = numeric()
+)
+```
+
+##### Load In Animal Data
+```{r}
+chicken <- read.csv("/Users/robpaine/chicken-welfare-impact/data/raw/Chicken_NASS_Data.csv")
+chicken <- clean_names(chicken)
+```
+
+##### Create Animal Rows
+```{r}
+chicken_row <- data.frame(
+  animal = "meat_chicken",
+  prod_lbs = as.numeric(gsub(",", "", chicken$chickens_broilers_production_measured_in_lb_b_value_b[1])),
+  prod_head = as.numeric(gsub(",", "", chicken$chickens_broilers_production_measured_in_head_b_value_b[1]))
+)
+df <- rbind(df, chicken_row)
+```
+
+##### Calculate The Live Yield Per Animal
+```{r}
+df$yield_per_animal_lbs <- df$prod_lbs/df$prod_head
+df$yield_per_animal_kg <- df$yield_per_animal_lbs * 0.4535924
+```
+
+##### Add in Ratios/Static Values 
+```{r}
+df$years_producing_product[1] <- 1
+###https://www.nationalchickencouncil.org/about-the-industry/statistics/u-s-broiler-performance/ 
+df$market_age[1] <- 47.4
+df$dressing_pct[1] <- .75
+df$carcass_to_edible_pct[1] <- .74
+```
+
+##### Calculate Carcass & Edible Weight
+```{r}
+df$carcass_weight_kg <- df$yield_per_animal_kg * df$dressing_pct
+df$edible_kg <- df$carcass_weight_kg * df$carcass_to_edible_pct
+```
+
+##### Calculate Life Per Gram
+```{r}
+df$life_per_kg <- 1/df$edible_kg
+df$life_per_g <- df$life_per_kg / 1000
+```
+
+##### Save Life Per Product Info
+```{r}
+df <- df[ ,c(1, 13)]
+saveRDS(df, "/Users/robpaine/chicken-welfare-impact/data/processed/animal_per_g.rds")
+```

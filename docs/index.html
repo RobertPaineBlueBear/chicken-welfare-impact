@@ -4,32 +4,754 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicken Welfare Impact Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f8f7f4;
+            min-height: 100vh;
+            color: #2d2d2d;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background: #2d2d2d;
+            border-bottom: 3px solid #b8860b;
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-nav a {
+            color: #e8e8e8;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .top-nav a:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .top-nav .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #b8860b;
+            letter-spacing: 0.01em;
+        }
+
+        /* Dropdown container */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #2d2d2d;
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-radius: 2px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            border: 2px solid #b8860b;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #e8e8e8;
+            padding: 0.875rem 1.25rem;
+            text-decoration: none;
+            display: block;
+            border-radius: 0;
+            transition: all 0.15s ease;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(184, 134, 11, 0.2);
+            color: #fff;
+            padding-left: 1.5rem;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown > a {
+            color: #e8e8e8;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .dropdown > a:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Home Page - Search */
+        .home-page {
+            display: block;
+        }
+
+        .search-section {
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .search-section h1 {
+            font-family: 'Crimson Pro', serif;
+            color: #2d2d2d;
+            margin-bottom: 0.75rem;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        .search-section p {
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        #foodSearch {
+            width: 100%;
+            max-width: 600px;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            background: white;
+            transition: all 0.2s ease;
+            color: #1a1a1a;
+        }
+
+        #foodSearch:hover {
+            border-color: #d1d5db;
+        }
+
+        #foodSearch:focus {
+            outline: none;
+            border-color: #b8860b;
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+        }
+
+        .search-results {
+            width: 100%;
+            max-width: 600px;
+            margin: 1rem auto 0;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .search-results.visible {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background: #fef9f0;
+            padding-left: 1.5rem;
+        }
+
+        .search-result-item .food-name {
+            color: #2d2d2d;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .search-result-item .food-meta {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .no-results {
+            padding: 2rem;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        /* Food Detail Page */
+        .food-page {
+            display: none;
+        }
+
+        .food-header {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 2.5rem;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .food-header h2 {
+            color: #4b5563;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .food-header h3 {
+            color: #1a1a1a;
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .food-stats {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: #fef2f2;
+        }
+
+        /* Harm Grid - 2x2 */
+        .harm-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .harm-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .harm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            border-color: #b8860b;
+        }
+
+        .harm-card h3 {
+            color: #dc2626;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .harm-value {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #8b0000;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0;
+        }
+
+        .harm-text {
+            color: #4b5563;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 1.25rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            max-width: 320px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            line-height: 1.5;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .harm-card:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Info Pages */
+        .info-page {
+            display: none;
+        }
+
+        .info-content {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        .info-content h2 {
+            color: #1a1a1a;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .info-content h3 {
+            color: #1a1a1a;
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .info-content p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+        }
+
+        .info-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-content li {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+        }
+
+        .info-content strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .harm-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🐔 Chicken Welfare Impact Calculator</h1>
-            <p>Search for chicken-containing foods to see their animal welfare impact</p>
-        </header>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <a href="#" class="logo" onclick="showPage('home')">Chicken Welfare Impact</a>
+        <div class="dropdown">
+            <a href="#">Harms ▾</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="showInfoPage('lameness')">Lameness</a>
+                <a href="#" onclick="showInfoPage('ascites')">Ascites</a>
+                <a href="#" onclick="showInfoPage('heat-stress')">Heat Stress</a>
+                <a href="#" onclick="showInfoPage('foraging')">Foraging Deprivation</a>
+            </div>
+        </div>
+    </nav>
 
-        <div class="search-box">
-            <input 
-                type="text" 
-                id="search" 
-                placeholder="Search foods (e.g., chicken breast, nuggets, sandwich)..."
-                autocomplete="off"
-            >
+    <div class="container">
+        <!-- HOME PAGE - Search -->
+        <div id="home" class="home-page">
+            <div class="search-section">
+                <h1>Chicken Welfare Impact Calculator</h1>
+                <p>Search for a chicken product to see its welfare impact</p>
+                <input type="text" id="foodSearch" placeholder="Type to search (e.g., chicken nuggets, wings...)" autocomplete="off">
+                <div id="searchResults" class="search-results"></div>
+            </div>
         </div>
 
-        <div id="results" class="results"></div>
-        <div id="impact" class="impact-display"></div>
+        <!-- FOOD DETAIL PAGE -->
+        <div id="food-detail" class="food-page">
+            <a href="#" class="back-link" onclick="showPage('home')">← Back to search</a>
+            
+            <div class="food-header">
+                <h2>A typical serving of</h2>
+                <h3 id="foodTitle">Food Name</h3>
+                <h2>contains <span id="foodChicken"></span>.</h2>
+                <h2 style="margin-top: 1.5rem; color: #555;">To produce this, chickens experienced:</h2>
+            </div>
+
+            <div class="harm-grid" id="harmGrid">
+                <!-- Harm cards will be inserted here -->
+            </div>
+        </div>
+
+        <!-- INFO PAGES -->
+        <div id="info-lameness" class="info-page">
+            <a href="#" class="back-link" onclick="showPage('home')">← Back to home</a>
+            <div class="info-content">
+                <h2>Lameness in Broiler Chickens</h2>
+                <p>Lameness is one of the most significant welfare issues affecting broiler chickens in commercial production. It refers to difficulty or inability to walk normally, causing pain and restricting the bird's ability to perform natural behaviors.</p>
+                
+                <h3>What Causes Lameness?</h3>
+                <p>The primary causes include:</p>
+                <ul>
+                    <li><strong>Rapid growth:</strong> Modern broilers have been bred to grow extremely quickly, reaching market weight in just 6-7 weeks. Their leg bones and joints cannot keep pace with their muscle development.</li>
+                    <li><strong>Body weight:</strong> The disproportionate breast muscle mass puts excessive strain on the legs and joints.</li>
+                    <li><strong>Skeletal disorders:</strong> Conditions like tibial dyschondroplasia, bacterial chondronecrosis, and valgus/varus deformities.</li>
+                    <li><strong>Poor litter quality:</strong> Wet, dirty bedding can lead to foot pad dermatitis and hock burns.</li>
+                </ul>
+
+                <h3>Impact on Chickens</h3>
+                <p>Lame birds experience:</p>
+                <ul>
+                    <li>Chronic pain and discomfort</li>
+                    <li>Difficulty reaching food and water</li>
+                    <li>Inability to escape aggression from other birds</li>
+                    <li>Reduced ability to rest comfortably</li>
+                    <li>Social isolation</li>
+                </ul>
+
+                <h3>Prevalence</h3>
+                <p>Studies suggest that 27-30% of broiler chickens experience some degree of lameness during their lives, with severity ranging from slight gait abnormalities to complete inability to walk.</p>
+            </div>
+        </div>
+
+        <div id="info-ascites" class="info-page">
+            <a href="#" class="back-link" onclick="showPage('home')">← Back to home</a>
+            <div class="info-content">
+                <h2>Ascites in Broiler Chickens</h2>
+                <p>Ascites, also known as "water belly," is a metabolic disorder characterized by the accumulation of fluid in the abdominal cavity. It's a consequence of the mismatch between rapid growth and the cardiovascular system's capacity.</p>
+                
+                <h3>What Causes Ascites?</h3>
+                <ul>
+                    <li><strong>Heart failure:</strong> The heart cannot pump enough blood to meet the oxygen demands of rapidly growing muscle tissue.</li>
+                    <li><strong>High altitude:</strong> Lower oxygen levels exacerbate the condition.</li>
+                    <li><strong>Poor ventilation:</strong> Inadequate air quality in barns increases oxygen stress.</li>
+                    <li><strong>Rapid growth rate:</strong> Selective breeding for fast growth has inadvertently increased susceptibility.</li>
+                </ul>
+
+                <h3>Impact on Chickens</h3>
+                <p>Birds with ascites experience:</p>
+                <ul>
+                    <li>Difficulty breathing</li>
+                    <li>Reduced mobility and activity</li>
+                    <li>Distended abdomen causing discomfort</li>
+                    <li>Often leads to sudden death</li>
+                </ul>
+
+                <h3>Prevalence</h3>
+                <p>Ascites affects approximately 4-5% of broiler chickens, though rates can be higher in certain conditions. It's one of the leading causes of mortality in the broiler industry.</p>
+            </div>
+        </div>
+
+        <div id="info-heat-stress" class="info-page">
+            <a href="#" class="back-link" onclick="showPage('home')">← Back to home</a>
+            <div class="info-content">
+                <h2>Heat Stress in Broiler Chickens</h2>
+                <p>Heat stress occurs when chickens cannot dissipate enough body heat to maintain a stable internal temperature. This is particularly problematic for fast-growing broilers, which generate substantial metabolic heat.</p>
+                
+                <h3>Why Are Broilers Vulnerable?</h3>
+                <ul>
+                    <li><strong>No sweat glands:</strong> Chickens cannot sweat and rely primarily on panting to cool down.</li>
+                    <li><strong>Rapid growth:</strong> High metabolic rate produces more body heat.</li>
+                    <li><strong>Heavy body weight:</strong> Large breast muscles generate significant heat during metabolism.</li>
+                    <li><strong>Dense stocking:</strong> Many birds in confined spaces increase ambient temperature.</li>
+                </ul>
+
+                <h3>Impact on Chickens</h3>
+                <p>Heat-stressed birds experience:</p>
+                <ul>
+                    <li>Panting and open-mouth breathing</li>
+                    <li>Reduced feed intake and growth</li>
+                    <li>Lethargy and depression</li>
+                    <li>Increased mortality, especially during heat waves</li>
+                    <li>Compromised immune function</li>
+                </ul>
+
+                <h3>Prevalence</h3>
+                <p>Approximately 10-15% of broiler chickens experience heat stress during their lives, with higher rates during summer months. Climate change is expected to increase this problem.</p>
+            </div>
+        </div>
+
+        <div id="info-foraging" class="info-page">
+            <a href="#" class="back-link" onclick="showPage('home')">← Back to home</a>
+            <div class="info-content">
+                <h2>Foraging and Exploration Deprivation</h2>
+                <p>Chickens are naturally curious, active birds with strong motivations to explore their environment, scratch, and forage for food. In intensive broiler production, these behavioral needs are severely restricted.</p>
+                
+                <h3>Natural Behaviors</h3>
+                <p>In natural or enriched environments, chickens spend much of their day:</p>
+                <ul>
+                    <li>Scratching and pecking at the ground</li>
+                    <li>Foraging for diverse food items</li>
+                    <li>Exploring their environment</li>
+                    <li>Dust bathing</li>
+                    <li>Perching at height</li>
+                    <li>Social interaction with varied group dynamics</li>
+                </ul>
+
+                <h3>Conditions in Industrial Production</h3>
+                <p>Broiler chickens in conventional systems face:</p>
+                <ul>
+                    <li><strong>Barren environments:</strong> Large, empty sheds with little to no enrichment</li>
+                    <li><strong>No substrate for foraging:</strong> Only litter (wood shavings or straw), no diverse materials to explore</li>
+                    <li><strong>Continuous food availability:</strong> Removes the motivation and opportunity to forage</li>
+                    <li><strong>High stocking density:</strong> Limited space for movement and exploration</li>
+                    <li><strong>Physical limitations:</strong> Lameness and rapid growth restrict mobility</li>
+                </ul>
+
+                <h3>Impact on Chickens</h3>
+                <p>The inability to express natural behaviors leads to:</p>
+                <ul>
+                    <li>Chronic frustration and boredom</li>
+                    <li>Abnormal behaviors like excessive sitting</li>
+                    <li>Reduced physical fitness</li>
+                    <li>Compromised psychological welfare</li>
+                </ul>
+
+                <h3>Scope of the Problem</h3>
+                <p>Essentially 100% of broiler chickens in conventional production experience severe restrictions on natural foraging and exploratory behaviors throughout their entire lives (approximately 42 days).</p>
+            </div>
+        </div>
     </div>
 
-    <footer>
-        <p>Data based on FNDDS 2021-2023 and Faunalytics methodology</p>
-    </footer>
+    <script>
+        let foodData = [];
+        let currentFood = null;
 
-    <script src="app.js"></script>
+        // Harm descriptions for tooltips
+        const harmDescriptions = {
+            'Lameness': 'Difficulty walking due to leg disorders, causing pain and limiting access to food and water',
+            'Ascites': 'Heart failure leading to fluid buildup in the abdomen, causing breathing difficulties and often death',
+            'Heat stress': 'Inability to regulate body temperature, leading to panting, distress, and potential mortality',
+            'Foraging and exploration deprivation': 'Inability to express natural behaviors like scratching, pecking, and exploring'
+        };
+
+        const harmKeywords = {
+            'Lameness': ['Lameness', 'lameness', 'Lame'],
+            'Ascites': ['Ascites', 'ascites'],
+            'Heat stress': ['Heat', 'heat', 'thermal', 'Thermal'],
+            'Foraging and exploration deprivation': ['Foraging', 'foraging', 'Exploration', 'exploration', 'Dustbathing', 'dustbathing']
+        };
+
+        // Load JSON data
+        fetch('chicken_food_impacts.json')
+            .then(response => response.text())
+            .then(text => {
+                foodData = JSON.parse(text);
+                console.log('✓ Loaded', foodData.length, 'foods');
+                setupSearch();
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+            });
+
+        function setupSearch() {
+            const searchInput = document.getElementById('foodSearch');
+            const resultsDiv = document.getElementById('searchResults');
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+
+                if (searchTerm.length < 2) {
+                    resultsDiv.classList.remove('visible');
+                    resultsDiv.innerHTML = '';
+                    return;
+                }
+
+                // Filter foods
+                const matches = foodData.filter(food =>
+                    food.food_name.toLowerCase().includes(searchTerm)
+                ).sort((a, b) => a.food_name.localeCompare(b.food_name));
+
+                if (matches.length === 0) {
+                    resultsDiv.innerHTML = '<div class="no-results">No foods found matching "' + searchTerm + '"</div>';
+                    resultsDiv.classList.add('visible');
+                    return;
+                }
+
+                // Display results
+                resultsDiv.innerHTML = matches.map(food => `
+                    <div class="search-result-item" data-food-code="${food.food_code}">
+                        <div class="food-name">${food.food_name}</div>
+                        <div class="food-meta">${food.chicken_grams}g chicken per serving</div>
+                    </div>
+                `).join('');
+
+                resultsDiv.classList.add('visible');
+
+                // Add click handlers
+                resultsDiv.querySelectorAll('.search-result-item').forEach(item => {
+                    item.addEventListener('click', () => selectFood(item.dataset.foodCode));
+                });
+            });
+
+            // Hide results when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
+                    resultsDiv.classList.remove('visible');
+                }
+            });
+        }
+
+        function selectFood(foodCode) {
+            console.log('selectFood called, foodCode:', foodCode);
+            console.log('foodData length:', foodData.length);
+
+            currentFood = foodData.find(f => f.food_code == foodCode);
+            console.log('Found food:', currentFood);
+
+            if (currentFood) {
+                // Clear search
+                document.getElementById('foodSearch').value = '';
+                document.getElementById('searchResults').classList.remove('visible');
+
+                showPage('food-detail');
+                setTimeout(() => displayFoodDetail(currentFood), 0);
+            } else {
+                console.error('No food found with code:', foodCode);
+            }
+        }
+
+        function displayFoodDetail(food) {
+            // Set header info
+            document.getElementById('foodTitle').textContent = food.food_name;
+            document.getElementById('foodChicken').textContent =
+                `${food.chicken_grams}g of chicken`;
+
+            // Group harms by category - sum up multiple entries for same harm type
+            const harmTotals = {
+                'Lameness': 0,
+                'Ascites': 0,
+                'Heat stress': 0,
+                'Foraging and exploration deprivation': 0
+            };
+
+            food.welfare_harms.forEach(harm => {
+                for (const [harmType, keywords] of Object.entries(harmKeywords)) {
+                    if (keywords.some(keyword => harm.condition.includes(keyword))) {
+                        harmTotals[harmType] += parseFloat(harm.hours_per_serving);
+                        break; // Only count each harm once
+                    }
+                }
+            });
+
+            // Create harm cards
+            const harmGrid = document.getElementById('harmGrid');
+            harmGrid.innerHTML = '';
+
+            // Create cards for all 4 harms
+            Object.entries(harmTotals).forEach(([harmName, hours]) => {
+                const card = document.createElement('div');
+                card.className = 'harm-card';
+                card.onclick = () => {
+                    const harmType = getHarmType(harmName);
+                    showInfoPage(harmType);
+                };
+
+                const displayHours = hours > 0 ? hours.toFixed(2) : '0.00';
+
+                card.innerHTML = `
+                    <h3>${harmName}</h3>
+                    <div class="harm-value">~${displayHours}</div>
+                    <div class="harm-text">hours of ${harmName.toLowerCase()}</div>
+                    <div class="tooltip">${harmDescriptions[harmName]}</div>
+                `;
+
+                harmGrid.appendChild(card);
+            });
+        }
+
+        function getHarmType(harmName) {
+            if (harmName.includes('Lameness')) return 'lameness';
+            if (harmName.includes('Ascites')) return 'ascites';
+            if (harmName.includes('Heat')) return 'heat-stress';
+            return 'foraging';
+        }
+
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.home-page, .food-page, .info-page').forEach(page => {
+                page.style.display = 'none';
+            });
+
+            // Show selected page
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function showInfoPage(harmType) {
+            showPage('info-' + harmType);
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,83 @@
+---
+title: "05_Export_To_JSON"
+output: html_document
+date: "2025-11-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##### IMPORT TO JSON
+```{r}
+df <- readRDS("/Users/robpaine/chicken-welfare-impact/data/processed/animal_per_food_w_impacts.rds")
+welfare_prevalence <- readRDS("/Users/robpaine/chicken-welfare-impact/data/processed/welfare_prevalence.rds")
+```
+
+```{r}
+food_impacts_list <- vector("list", nrow(df))
+```
+
+```{r}
+for (i in 1:nrow(df)) {
+  
+  # Get welfare harms for this food
+  welfare_harms <- list()
+  
+  for (condition in colnames(welfare_prevalence)) {
+    animals_affected_col <- paste0(condition, "_per_serving")
+    
+    # Only include if column exists
+    if (animals_affected_col %in% colnames(df)) {
+      welfare_harms[[length(welfare_harms) + 1]] <- list(
+        condition = gsub("_", " ", condition),  # Make readable
+        hours_per_serving = df[[animals_affected_col]][i]
+      )
+    }
+  }
+  
+  # Create food entry
+  food_impacts_list[[i]] <- list(
+    food_code = df$food_code[i],
+    food_name = df$food_name_simple[i],
+    chicken_grams = df$chicken[i],
+    lives_per_serving = df$lives_per_serving[i],
+    welfare_harms = welfare_harms
+  )
+}
+```
+
+```{r}
+write_json(
+  food_impacts_list,
+  "/Users/robpaine/chicken-welfare-impact/docs/chicken_food_impacts.json",
+  pretty = TRUE,
+  auto_unbox = TRUE
+)
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+
